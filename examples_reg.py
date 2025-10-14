@@ -13,6 +13,13 @@ try:
     last_name.send_keys('bubaev')
     email = browser.find_element(By.CLASS_NAME, "third")
     email.send_keys('bubaev@frum.rum')
+    button = browser.find_element(By.CSS_SELECTOR, "button.btn")
+    button.click()
 
+    time.sleep(1)
+
+    welcome_text_elt = browser.find_element(By.TAG_NAME, "h1")
+    welcome_text = welcome_text_elt.text
+    assert "Congratulations! You have successfully registered!" == welcome_text
 finally:
     time.sleep(6)
